@@ -1,0 +1,101 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.nav.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_lesson"
+            app:destination="@id/navigation_lesson" />
+    </fragment>
+
+    <!-- Main Quiz Fragment -->
+    <fragment
+        android:id="@+id/navigation_quiz"
+        android:name="com.example.nav.ui.quiz.EvaluationPage"
+        tools:layout="@layout/fragment_eval">
+        <action
+            android:id="@+id/action_navigation_quiz_to_ChapterFragment"
+            app:destination="@id/ChapterFragment" />
+        <action
+            android:id="@+id/action_navigation_quiz_to_ExamFragment"
+            app:destination="@id/ExamFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ExamFragment"
+        android:name="com.example.nav.ui.quiz.Exam"
+        tools:layout="@layout/fragment_exam" >
+    </fragment>
+
+    <fragment
+
+        android:id="@+id/ChapterFragment"
+        android:name="com.example.nav.ui.quiz.Chapter"
+        tools:layout="@layout/fragment_chapter" >
+        <action
+            android:id="@+id/action_ChapterFragment_to_button1"
+            app:destination="@id/ChapterAssessment" />
+    </fragment>
+
+    <!-- Define Chapter Assessment fragments -->
+    <fragment
+        android:id="@+id/navigation_chapter_assessment"
+        android:name="com.example.nav.ui.lesson.ChapterAssessment"
+        tools:layout="@layout/fragment_chap_asses" />
+
+
+    <!-- Progress Fragment -->
+    <fragment
+        android:id="@+id/navigation_progress"
+        android:name="com.example.nav.ui.progress.ProgressFragment"
+        tools:layout="@layout/fragment_progress">
+        <action
+            android:id="@+id/action_navigation_progress_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.nav.ui.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+
+
+    <!-- Lesson Fragment -->
+    <fragment
+        android:id="@+id/navigation_lesson"
+        android:name="com.example.nav.ui.lesson.LessonFragment"
+        tools:layout="@layout/fragment_lesson">
+        <action
+            android:id="@+id/action_navigation_lesson_to_navigation_progress"
+            app:destination="@id/navigation_progress" />
+        <action
+            android:id="@+id/action_navigation_lesson_to_navigation_getting_started"
+            app:destination="@id/navigation_getting_started" />
+        <action
+            android:id="@+id/action_navigation_lesson_to_navigation_lesson_view"
+            app:destination="@id/navigation_lesson_view" />
+        <action
+            android:id="@+id/action_navigation_lesson_to_ChapterAssessment"
+            app:destination="@id/ChapterAssessment" />
+    </fragment>
+
+    <!-- View Lesson Activity -->
+    <fragment
+        android:id="@+id/navigation_lesson_view"
+        android:name="com.example.nav.ui.lesson.LessonViewFragment"
+        tools:layout="@layout/fragment_lesson_view"/>
+
+    <!-- Getting Started Fragment -->
+    <fragment
+        android:id="@+id/navigation_getting_started"
+        android:name="com.example.nav.ui.getting_started.GettingStartedFragment"
+        tools:layout="@layout/fragment_getting_started"/>
+
+</navigation>
